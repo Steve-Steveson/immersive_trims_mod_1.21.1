@@ -56,6 +56,9 @@ public class IEAddonItemModelProvider extends ItemModelProvider {
         trimmedSteelArmorItem(IEItems.Tools.STEEL_ARMOR.get(ArmorItem.Type.BOOTS).get());
 
         trimmedFaradayArmorItem(IEItems.Misc.FARADAY_SUIT.get(ArmorItem.Type.HELMET).get());
+        trimmedFaradayArmorItem(IEItems.Misc.FARADAY_SUIT.get(ArmorItem.Type.CHESTPLATE).get());
+        trimmedFaradayArmorItem(IEItems.Misc.FARADAY_SUIT.get(ArmorItem.Type.LEGGINGS).get());
+        trimmedFaradayArmorItem(IEItems.Misc.FARADAY_SUIT.get(ArmorItem.Type.BOOTS).get());
     }
 
 
@@ -92,8 +95,10 @@ public class IEAddonItemModelProvider extends ItemModelProvider {
 //                }
 
                 ResourceLocation armorItemResLoc = ResourceLocation.parse(armorItemPath);
-                ResourceLocation trimResLoc = ResourceLocation.parse(trimPath.replaceFirst("trim_", "trim_immersiveengineering_")); // minecraft namespace
-
+                ResourceLocation trimResLoc = ResourceLocation.parse(trimPath); // minecraft namespace
+                if (!isVanilla) {
+                    trimResLoc = ResourceLocation.parse(trimPath.replaceFirst("trim_", "trim_immersiveengineering_"));
+                }
 
 
 
@@ -108,6 +113,7 @@ public class IEAddonItemModelProvider extends ItemModelProvider {
 
 
                 // Trimmed armorItem files
+
                 String[] trimNameSplit = currentTrimName.split(":");
                 if(trimNameSplit.length == 2) {
                     currentTrimName = MOD_ID + ":" + trimNameSplit[1];
