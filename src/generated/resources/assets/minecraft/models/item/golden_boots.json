@@ -1,0 +1,116 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "minecraft:item/golden_boots_quartz_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.1
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_constantan_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.11
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_electrum_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.12
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_aluminum_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.13
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_uranium_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.14
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_lead_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.15
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_steel_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.16
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_silver_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.17
+      }
+    },
+    {
+      "model": "immersive_trims:item/minecraft/golden_boots_nickel_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.18
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_iron_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.2
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_netherite_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.3
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_redstone_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.4
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_copper_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.5
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_gold_darker_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.6
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_emerald_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.7
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_diamond_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.8
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_lapis_trim",
+      "predicate": {
+        "minecraft:trim_type": 0.9
+      }
+    },
+    {
+      "model": "minecraft:item/golden_boots_amethyst_trim",
+      "predicate": {
+        "minecraft:trim_type": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "minecraft:item/golden_boots"
+  }
+}

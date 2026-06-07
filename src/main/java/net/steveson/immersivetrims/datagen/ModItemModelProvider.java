@@ -12,6 +12,7 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.steveson.immersivetrims.ImmersiveTrimsMod;
+import net.steveson.immersivetrims.trim.ModTrimMaterials;
 
 import java.util.LinkedHashMap;
 
@@ -19,6 +20,14 @@ public class ModItemModelProvider extends ItemModelProvider {
     private static LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
     static {
         trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);
+        trimMaterials.put(ModTrimMaterials.CONSTANTAN, 0.11F);
+        trimMaterials.put(ModTrimMaterials.ELECTRUM, 0.12F);
+        trimMaterials.put(ModTrimMaterials.ALUMINUM, 0.13F);
+        trimMaterials.put(ModTrimMaterials.URANIUM, 0.14F);
+        trimMaterials.put(ModTrimMaterials.LEAD, 0.15F);
+        trimMaterials.put(ModTrimMaterials.STEEL, 0.16F);
+        trimMaterials.put(ModTrimMaterials.SILVER, 0.17F);
+        trimMaterials.put(ModTrimMaterials.NICKEL, 0.18F);
         trimMaterials.put(TrimMaterials.IRON, 0.2F);
         trimMaterials.put(TrimMaterials.NETHERITE, 0.3F);
         trimMaterials.put(TrimMaterials.REDSTONE, 0.4F);
@@ -27,7 +36,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimMaterials.put(TrimMaterials.EMERALD, 0.7F);
         trimMaterials.put(TrimMaterials.DIAMOND, 0.8F);
         trimMaterials.put(TrimMaterials.LAPIS, 0.9F);
-//        trimMaterials.put(ModTrimMaterials.OPAL, 0.91F);
         trimMaterials.put(TrimMaterials.AMETHYST, 1.0F);
     }
 

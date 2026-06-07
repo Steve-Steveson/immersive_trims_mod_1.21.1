@@ -1,5 +1,6 @@
 package net.steveson.immersivetrims.datagen;
 
+import com.google.common.base.Preconditions;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -10,10 +11,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.item.armortrim.TrimMaterials;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.steveson.immersivetrims.ImmersiveTrimsMod;
+import net.steveson.immersivetrims.trim.ModTrimMaterials;
 
 
 import java.util.LinkedHashMap;
@@ -22,6 +25,14 @@ public class VanillaItemModelProvider extends ItemModelProvider {
     private static LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
     static {
         trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);
+        trimMaterials.put(ModTrimMaterials.CONSTANTAN, 0.11F);
+        trimMaterials.put(ModTrimMaterials.ELECTRUM, 0.12F);
+        trimMaterials.put(ModTrimMaterials.ALUMINUM, 0.13F);
+        trimMaterials.put(ModTrimMaterials.URANIUM, 0.14F);
+        trimMaterials.put(ModTrimMaterials.LEAD, 0.15F);
+        trimMaterials.put(ModTrimMaterials.STEEL, 0.16F);
+        trimMaterials.put(ModTrimMaterials.SILVER, 0.17F);
+        trimMaterials.put(ModTrimMaterials.NICKEL, 0.18F);
         trimMaterials.put(TrimMaterials.IRON, 0.2F);
         trimMaterials.put(TrimMaterials.NETHERITE, 0.3F);
         trimMaterials.put(TrimMaterials.REDSTONE, 0.4F);
@@ -30,7 +41,6 @@ public class VanillaItemModelProvider extends ItemModelProvider {
         trimMaterials.put(TrimMaterials.EMERALD, 0.7F);
         trimMaterials.put(TrimMaterials.DIAMOND, 0.8F);
         trimMaterials.put(TrimMaterials.LAPIS, 0.9F);
-//        trimMaterials.put(ModTrimMaterials.OPAL, 0.91F);
         trimMaterials.put(TrimMaterials.AMETHYST, 1.0F);
     }
 
@@ -103,14 +113,23 @@ public class VanillaItemModelProvider extends ItemModelProvider {
                 }
 
                 ResourceLocation armorItemResLoc = ResourceLocation.parse(armorItemPath);
-                ResourceLocation trimResLoc = ResourceLocation.parse(trimPath); // minecraft namespace
-
-
+                ResourceLocation trimResLoc = ResourceLocation.parse(trimPath.replaceFirst("trim_", "trim_immersiveengineering_")); // minecraft namespace
 
 
                 // This is used for making the ExistingFileHelper acknowledge that this texture exist, so this will
                 // avoid an IllegalArgumentException
                 existingFileHelper.trackGenerated(trimResLoc, PackType.CLIENT_RESOURCES, ".png", "textures");
+
+
+//                String targetResourcePath = currentTrimName.replaceFirst("item/", "item/minecraft/");
+//                targetResourcePath.replaceFirst("item/", "item/minecraft/");
+//                ResourceLocation outputLoc = this.extendWithFolder(currentTrimName.contains(":") ? ResourceLocation.parse(currentTrimName) : ResourceLocation.fromNamespaceAndPath(this.modid, currentTrimName
+//                        //                + "/minecraft"
+//                ));
+
+                ResourceLocation outputLoc = ResourceLocation.fromNamespaceAndPath(MOD_ID, "item/minecraft/" + ResourceLocation.parse(currentTrimName).getPath()
+                        //                + "/minecraft"
+                );
 
                 // Trimmed armorItem files
                 if (!isVanilla) {
@@ -119,15 +138,18 @@ public class VanillaItemModelProvider extends ItemModelProvider {
                         currentTrimName = MOD_ID + ":" + trimNameSplit[1];
                     }
 
+                    System.out.println(currentTrimName);
+                    System.out.println(outputLoc);
+
                     if (armorItem.getMaterial() == ArmorMaterials.LEATHER) {
-                        getBuilder(currentTrimName)
+                        getBuilder(currentTrimName, outputLoc)
                                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                                 .texture("layer0", armorItemResLoc.getNamespace() + ":item/" + armorItemResLoc.getPath())
                                 .texture("layer1", armorItemResLoc.getNamespace() + ":item/" + armorItemResLoc.getPath() + "_overlay")
                                 .texture("layer2", trimResLoc);
                     }
                     else {
-                        getBuilder(currentTrimName)
+                        getBuilder(currentTrimName, outputLoc)
                                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                                 .texture("layer0", armorItemResLoc.getNamespace() + ":item/" + armorItemResLoc.getPath())
                                 .texture("layer1", trimResLoc);
@@ -148,7 +170,7 @@ public class VanillaItemModelProvider extends ItemModelProvider {
                     this.withExistingParent(armorItemPath,
                                     mcLoc("item/generated"))
                             .override()
-                            .model(new ModelFile.UncheckedModelFile(trimNameResLoc.getNamespace() + ":item/" + trimNameResLoc.getPath()))
+                            .model(new ModelFile.UncheckedModelFile(isVanilla? trimNameResLoc.getNamespace() + ":item/" + trimNameResLoc.getPath() : outputLoc.toString()))
                             .predicate(mcLoc("trim_type"), trimValue).end()
                             .texture("layer0",
                                     ResourceLocation.fromNamespaceAndPath("minecraft",
@@ -161,7 +183,7 @@ public class VanillaItemModelProvider extends ItemModelProvider {
                     this.withExistingParent(armorItemPath,
                                     mcLoc("item/generated"))
                             .override()
-                            .model(new ModelFile.UncheckedModelFile(trimNameResLoc.getNamespace() + ":item/" + trimNameResLoc.getPath()))
+                            .model(new ModelFile.UncheckedModelFile(isVanilla? trimNameResLoc.getNamespace() + ":item/" + trimNameResLoc.getPath() : outputLoc.toString()))
                             .predicate(mcLoc("trim_type"), trimValue).end()
                             .texture("layer0",
                                     ResourceLocation.fromNamespaceAndPath("minecraft",
@@ -169,5 +191,27 @@ public class VanillaItemModelProvider extends ItemModelProvider {
                 }
             });
         }
+    }
+
+//    private ResourceLocation extendWithFolder(ResourceLocation rl) {
+//        if (rl.getPath().contains("/")) {
+//            return rl;
+//        } else {
+//            String var10000 = rl.getNamespace();
+//            String var10001 = this.folder;
+//            return ResourceLocation.fromNamespaceAndPath(var10000, var10001 + "/" + rl.getPath());
+//        }
+//    }
+
+
+//    @Override
+    public ItemModelBuilder getBuilder(String path, ResourceLocation outputLoc) {
+        Preconditions.checkNotNull(path, "Path must not be null");
+//        ResourceLocation outputLoc = this.extendWithFolder(path.contains(":") ? ResourceLocation.parse(path) : ResourceLocation.fromNamespaceAndPath(this.modid, path
+//                + "/minecraft"
+//        ));
+        this.existingFileHelper.trackGenerated(outputLoc, MODEL);
+        return (ItemModelBuilder)(this.generatedModels.computeIfAbsent(outputLoc, this.factory));
+//        return super.getBuilder(path);
     }
 }
