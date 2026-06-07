@@ -1,0 +1,9 @@
+{
+  "asset_name": "immersiveengineering_nickel",
+  "description": {
+    "color": "#bcc2af",
+    "translate": "trim_material.immersiveengineering.nickel"
+  },
+  "ingredient": "immersiveengineering:ingot_nickel",
+  "item_model_index": 0.18
+}

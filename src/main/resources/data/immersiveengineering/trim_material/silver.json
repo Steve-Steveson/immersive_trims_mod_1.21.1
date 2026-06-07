@@ -1,0 +1,9 @@
+{
+  "asset_name": "immersiveengineering_silver",
+  "description": {
+    "color": "#deebf4",
+    "translate": "trim_material.immersiveengineering.silver"
+  },
+  "ingredient": "immersiveengineering:ingot_silver",
+  "item_model_index": 0.17
+}

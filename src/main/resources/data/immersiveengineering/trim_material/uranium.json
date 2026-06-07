@@ -1,0 +1,9 @@
+{
+  "asset_name": "immersiveengineering_uranium",
+  "description": {
+    "color": "#5f6d55",
+    "translate": "trim_material.immersiveengineering.uranium"
+  },
+  "ingredient": "immersiveengineering:ingot_uranium",
+  "item_model_index": 0.14
+}

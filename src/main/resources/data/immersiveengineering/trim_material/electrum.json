@@ -1,0 +1,9 @@
+{
+  "asset_name": "immersiveengineering_electrum",
+  "description": {
+    "color": "#ffd051",
+    "translate": "trim_material.immersiveengineering.electrum"
+  },
+  "ingredient": "immersiveengineering:ingot_electrum",
+  "item_model_index": 0.12
+}

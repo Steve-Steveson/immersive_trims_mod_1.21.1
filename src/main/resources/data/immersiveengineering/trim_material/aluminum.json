@@ -1,0 +1,9 @@
+{
+  "asset_name": "immersiveengineering_aluminum",
+  "description": {
+    "color": "#b9c0c3",
+    "translate": "trim_material.immersiveengineering.aluminum"
+  },
+  "ingredient": "immersiveengineering:ingot_aluminum",
+  "item_model_index": 0.13
+}

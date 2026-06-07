@@ -1,0 +1,9 @@
+{
+  "asset_name": "immersiveengineering_lead",
+  "description": {
+    "color": "#717992",
+    "translate": "trim_material.immersiveengineering.lead"
+  },
+  "ingredient": "immersiveengineering:ingot_lead",
+  "item_model_index": 0.15
+}

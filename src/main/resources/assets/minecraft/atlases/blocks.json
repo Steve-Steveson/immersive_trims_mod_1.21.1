@@ -1,0 +1,24 @@
+{
+    "sources": [
+        {
+            "type": "paletted_permutations",
+            "textures": [
+                "trims/items/leggings_trim",
+                "trims/items/chestplate_trim",
+                "trims/items/helmet_trim",
+                "trims/items/boots_trim"
+            ],
+            "palette_key": "trims/color_palettes/trim_palette",
+            "permutations": {
+                "immersiveengineering_aluminum": "immersiveengineering:trims/color_palettes/aluminum",
+                "immersiveengineering_constantan": "immersiveengineering:trims/color_palettes/constantan",
+                "immersiveengineering_electrum": "immersiveengineering:trims/color_palettes/electrum",
+                "immersiveengineering_nickel": "immersiveengineering:trims/color_palettes/nickel",
+                "immersiveengineering_silver": "immersiveengineering:trims/color_palettes/silver",
+                "immersiveengineering_steel": "immersiveengineering:trims/color_palettes/steel",
+                "immersiveengineering_lead": "immersiveengineering:trims/color_palettes/lead",
+                "immersiveengineering_uranium": "immersiveengineering:trims/color_palettes/uranium"
+            }
+        }
+    ]
+}
