@@ -18,7 +18,7 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 //        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new IEAddonItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new VanillaItemModelProvider(packOutput, existingFileHelper));
     }
 }

@@ -138,8 +138,8 @@ public class VanillaItemModelProvider extends ItemModelProvider {
                         currentTrimName = MOD_ID + ":" + trimNameSplit[1];
                     }
 
-                    System.out.println(currentTrimName);
-                    System.out.println(outputLoc);
+//                    System.out.println(currentTrimName);
+//                    System.out.println(outputLoc);
 
                     if (armorItem.getMaterial() == ArmorMaterials.LEATHER) {
                         getBuilder(currentTrimName, outputLoc)
